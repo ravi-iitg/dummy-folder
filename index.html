@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="product">
+        <div class="gallery">
+          <img src="product_Images/image1.png" alt="" id="product-img" />
+          <div class="controls">
+            <span class="btn active"></span>
+            <span class="btn"></span>
+            <span class="btn"></span>
+          </div>
+        </div>
+        <div class="details">
+          <h1>Casual T Shirt</h1>
+          <h2>$15.00</h2>
+          <h3>30% OFF</h3>
+          <p>
+            Wrangler is an American brand <br />
+            of jeans which prduces products for workwear.They do sell other
+            products too.
+          </p>
+          <form action="">
+            <div class="size-select">
+              <p>Size</p>
+              <label for="small">
+                <input type="radio" id="small" name="size" />
+                <span>S</span>
+              </label>
+              <label for="medium">
+                <input type="radio" id="medium" name="size" />
+                <span>M</span>
+              </label>
+              <label for="large">
+                <input type="radio" id="large" name="size" />
+                <span>L</span>
+              </label>
+              <label for="x-large">
+                <input type="radio" id="x-large" name="size" />
+                <span>XL</span>
+              </label>
+              <label for="xx-large">
+                <input type="radio" id="xx-large" name="size" />
+                <span>XXL</span>
+              </label>
+            </div>
+            <div class="color-select">
+              <p>Color</p>
+              <label for="blue">
+                <input type="radio" id="blue" name="size" />
+                <span class="color-1"></span>
+              </label>
+              <label for="pink">
+                <input type="radio" id="pink" name="size" />
+                <span class="color-2"></span>
+              </label>
+              <label for="green">
+                <input type="radio" id="green" name="size" />
+                <span class="color-3"></span>
+              </label>
+              <label for="red">
+                <input type="radio" id="red" name="size" />
+                <span class="color-4"></span>
+              </label>
+            </div>
+            <div class="quantity-select">
+              <p>Quantity</p>
+              <input type="number" value="1" min="1" />
+            </div>
+            <button>Buy Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      let btnList = document.querySelectorAll(".btn");
+      let productImg = document.getElementById("product-img");
+
+      for (let i = 0; i < btnList.length; i++) {
+        btnList[i].addEventListener("click", () => {
+          productImg.src = `product_Images/image${i + 1}.png`;
+          for (let j = 0; j < btnList.length; j++) {
+            btnList[j].classList.remove("active");
+          }
+          btnList[i].classList.add("active");
+        });
+      }
+    </script>
+  </body>
+</html>
